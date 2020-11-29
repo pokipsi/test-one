@@ -21,7 +21,7 @@
         :onClick="() => itemClicked(item)"
       />
     </ul>
-    <Pagination :pagesCount="pagesCount" :page="page" :paginate="paginate" :perPage="resultsPerPage" :perPageSelected="perPageSelected" />
+    <Pagination :pagesCount="pagesCount" :page="page" :paginate="paginate" v-model="resultsPerPage" />
     <img :src="animation.avatar" class="animated-avatar" v-for="animation in activeAvatars" :key="animation.id" />
   </div>
 </template>
@@ -98,11 +98,6 @@ export default {
         this.pagesCount = Number(this.paginationData.last.page);
       }
     },
-    perPageSelected(perPage) {
-      this.resultsPerPage = perPage;
-      this.page = 1;
-      this.getItems();
-    },
     getItems() {
       this.loading = true;
       fetch(this.endpoint())
@@ -130,6 +125,10 @@ export default {
       this.getItems();
     },
     dateSince: function() {
+      this.page = 1;
+      this.getItems();
+    },
+    resultsPerPage: function() {
       this.page = 1;
       this.getItems();
     }

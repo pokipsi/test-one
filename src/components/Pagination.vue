@@ -2,8 +2,8 @@
   <div class="wrapper">
     <div class="mr-auto">
         Per page
-        <select @change="selected">
-            <option v-for="perPageItem in perPageItems" :key="perPageItem" :selected="perPageItem == perPage">{{ perPageItem }}</option>
+        <select v-model="perPage">
+            <option v-for="perPageItem in perPageItems" :key="perPageItem">{{ perPageItem }}</option>
         </select>
     </div>
     <div class="pagination" v-if="paginationStructure">
@@ -63,7 +63,7 @@ export default {
         type: Function,
         default: () => {}
     },
-    perPage: {
+    value: {
         type: Number,
         default: 50
     }
@@ -88,6 +88,14 @@ export default {
         paginationLength: this.paginationLength
       });
       return p.getStructure();
+    },
+    perPage: {
+      get() {
+        return this.value;
+      },
+      set(val) {
+        this.$emit('input', val);
+      }
     }
   }
 };
