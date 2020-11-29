@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <List title="Gists"/>
+      <List />
     </div>
   </div>
 </template>
