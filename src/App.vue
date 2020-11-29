@@ -1,28 +1,84 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <List title="Gists"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import List from './components/List.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    List
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+
+  ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: #eee;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: #aaa;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  #app {
+    display: flex;
+    justify-content: center;
+    padding-top: 64px;
+    height: calc(100vh - 64px);
+  }
+
+  .container {
+    width: 1000px;
+  }
+
+  .mr-8 {
+    margin-right: 8px !important;
+  }
+  .ml-8 {
+    margin-left: 8px !important;
+  } 
+  a {
+    text-decoration: none;
+    color: #06A9F6;
+    &:hover {
+      color: #055c85;
+    }
+  }
+
+  button {
+    border: none;
+    color: white;
+    border-radius: 2px;
+    padding: 4px 8px;
+    &.btn-blue {
+      background-color: #055c85;
+      &:hover {
+        background-color: darken(#055c85, 5%);
+        cursor: pointer;
+      }
+    }
+  }
+
+  
+
 </style>

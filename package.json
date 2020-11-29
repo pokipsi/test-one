@@ -9,7 +9,13 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "luxon": "^1.25.0",
+    "parse-link-header": "^1.0.1",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
+    "vue": "^2.6.11",
+    "vue-datetime": "^1.0.0-beta.14",
+    "weekstart": "^1.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
