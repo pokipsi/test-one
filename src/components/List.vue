@@ -47,14 +47,10 @@ export default {
   data: () => {
     return {
       items: [],
-
       selected: null,
-
       showAvatar: false,
       activeAvatars: {},
-
       loading: false,
-
       page: 1,
       resultsPerPage: 30,
       dateSince: null,

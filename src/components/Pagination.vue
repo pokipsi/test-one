@@ -60,12 +60,12 @@ export default {
       default: 10
     },
     perPageSelected: {
-        type: Function,
-        default: () => {}
+      type: Function,
+      default: () => {}
     },
     value: {
-        type: Number,
-        default: 50
+      type: Number,
+      default: 50
     }
   },
   data() {
