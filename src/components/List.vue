@@ -21,15 +21,8 @@
         :onClick="() => itemClicked(item)"
       />
     </ul>
-    
-    
-      <img :src="animation.avatar" class="animate animated-avatar" v-for="animation in activeAvatars" :key="animation.id" />
-    
-    
-    
-
-    <Pagination :pagesCount="pagesCount" :page="page" :paginate="paginate" />
-
+    <Pagination :pagesCount="pagesCount" :page="page" :paginate="paginate" :perPage="resultsPerPage" :perPageSelected="perPageSelected" />
+    <img :src="animation.avatar" class="animated-avatar" v-for="animation in activeAvatars" :key="animation.id" />
   </div>
 </template>
 
@@ -82,7 +75,7 @@ export default {
       }, 1300);
     },
     endpoint() {
-      return `https://api.github.com/gists/public?page=${this.page}${ this.dateSince ? '&since=' + this.dateSince : '' }`;
+      return `https://api.github.com/gists/public?page=${this.page}&per_page=${this.resultsPerPage}${ this.dateSince ? '&since=' + this.dateSince : '' }`;
     },
     paginate(page) {
       if (page > 0 && page <= this.pagesCount) {
@@ -104,6 +97,11 @@ export default {
       if(this.paginationData && this.paginationData.last) {
         this.pagesCount = Number(this.paginationData.last.page);
       }
+    },
+    perPageSelected(perPage) {
+      this.resultsPerPage = perPage;
+      this.page = 1;
+      this.getItems();
     },
     getItems() {
       this.loading = true;
@@ -184,10 +182,8 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  &.animate {
-    animation: avatar 1.25s;
-    animation-fill-mode: forwards;
-  }
+  animation: avatar 1.25s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes avatar {

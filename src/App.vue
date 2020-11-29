@@ -56,7 +56,14 @@ export default {
   }
   .ml-8 {
     margin-left: 8px !important;
+  }
+  .ml-auto {
+    margin-left: auto !important;
   } 
+  .mr-auto {
+    margin-right: auto !important;
+  } 
+
   a {
     text-decoration: none;
     color: #06A9F6;
@@ -77,6 +84,12 @@ export default {
         cursor: pointer;
       }
     }
+  }
+
+  select {
+    background-color: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
   }
 
   
