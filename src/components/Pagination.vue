@@ -75,11 +75,6 @@ export default {
       ]
     }
   },
-  methods: {
-    selected(e) {
-      this.perPageSelected(Number(e.target.value));
-    }
-  },
   computed: {
     paginationStructure() {
       const p = new PaginationLinksStructure({
@@ -94,7 +89,7 @@ export default {
         return this.value;
       },
       set(val) {
-        this.$emit('input', val);
+        this.$emit('input', Number(val));
       }
     }
   }
